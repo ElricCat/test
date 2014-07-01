@@ -8,7 +8,7 @@ window.onload = function(){
 
 	//鼠标事件
 	btn.onclick = play;
-
+	
 	//键盘事件
 	document.onkeyup = function(event){
 		event = event || window.event;
