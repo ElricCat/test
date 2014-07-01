@@ -1,11 +1,26 @@
+/**
+*模拟抽奖，可以用鼠标点击，也可以敲回车键
+*
+**/
 var timer = null;//定时器
 window.onload = function(){
 	var btn = document.getElementById("choujiang");
+
+	//鼠标事件
 	btn.onclick = play;
+
+	//键盘事件
+	document.onkeyup = function(event){
+		event = event || window.event;
+		if(event.keyCode == 13){
+			play(btn);
+		}
+	}
 }
 
 function play(){
 		var cj = document.getElementById("cj");
+		var btn = document.getElementById("choujiang")
 		var i = 0;
 
 		//每一次调用都要清楚之前的定时器
@@ -34,9 +49,10 @@ function play(){
 		},80);
 
 		//设置抽奖按钮的背景
-		var that = this;
-		that.style.background="#999";
-		that.onclick = null;
+
+		btn.style.background="#999";
+		btn.onclick = null;
+		document.onkeyup = null;
 
 		//停止抽奖
 		setTimeout(function(){
@@ -50,8 +66,15 @@ function play(){
 				alert(choosen);
 			}
 			//重设抽奖按钮背景
-			document.getElementById("choujiang").style.background="#F00";
-			that.onclick = play;
+			btn.style.background="#F00";
+			
+			btn.onclick = play;
+			document.onkeyup = function(event){
+				event = event || window.event;
+				if(event.keyCode == 13){
+					play();
+				}
+			}
 		},randomTime * 1000 + 2000);
 }
 
