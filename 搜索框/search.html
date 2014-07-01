@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Bing search</title>
+		<meta charset="utf-8">
+		<!-- 按照IE的正常的模式来渲染页面 ，设置之后，就算在浏览器中选择其他模式也不起作用-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<link rel="stylesheet" type="text/css" href="css/style.css" >
+	
+		
+	</head>
+	<body>
+		<div class="bg-div">
+			<div class="search-box">
+				<div class="logo"></div>
+				<form id="search_form"  class="search-form" action="https://cn.bing.com/search" target="_blank">
+					<input type="text" class="search-input-text" name = "q" id="search_input" />
+					<input type="submit" type="text" class="search-input-button" value=""/>
+				</form>
+			</div>
+		</div>
+
+		<div class="suggest" id="search_suggest">
+			<ul>
+				<li>手机</li>
+				<li>手表</li>
+				<li>手提电脑</li>
+			<ul>
+		</div>
+		<script src="js/jquery-1.11.1.js"></script>
+		<script src="js/script.js"></script>
+	</body>
+</html>

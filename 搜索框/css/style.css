@@ -1,0 +1,73 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #333;
+}
+
+.bg-div{
+	background-image:url(../image/bg.jpg);
+	width: 1366px;
+	height: 666px;
+	margin: 0 auto; 
+	position: relative;
+}
+
+.logo{
+	background-image: url(../image/hp_zh_cn.png);
+	width: 107px;
+	height: 53px;
+	float: left;
+	margin:-4px 18px 0 0;
+}
+form{
+	float: left;
+	background-color: #fff;
+	padding: 5px;
+}
+.search-input-text{
+	border: 0;
+	float: left;
+	height: 37px;
+	width: 500px;
+	line-height: 37px;
+	outline: 0;
+	font-size: 20px;
+	cursor: pointer;
+}
+.search-input-button{
+	height: 37px!important;
+	width: 37px!important;
+	border: 5px solid #ffb900 !important;
+	background: #ffb900 url(../image/hpc12.png) no-repeat!important;
+	background-position: -224px -53px!important;
+	vertical-align: inherit!important;
+}
+
+.search-box{
+	position: absolute;
+	top: 200px;
+	left: 300px;
+}
+/*搜索框提示*/
+.suggest{
+	width: 388px;
+	background-color: #fff;
+	border: 1px solid #999;
+	display: none;
+}
+.suggest ul{
+	list-style: none;
+}
+.suggest ul li{
+	padding: 3px;
+	font-size: 14px;
+	line-height: 25px;
+	cursor: pointer;
+}
+.suggest ul li:hover{
+	background-color: #e5e5e5;
+	text-decoration: underline;
+}
