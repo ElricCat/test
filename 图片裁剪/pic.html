@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>图片裁剪</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding:0;
+			}
+			body{
+				background: #333;
+			}
+			#box{
+				position: absolute;
+				top:10px;
+				left: 20px;
+				width: 750px;
+				height: 600px;
+			}
+			#img1{
+				opacity: 0.5;
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#img2{
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*对图片进行裁剪*/
+				clip: rect(0,200px,200px,0);
+			}
+			#main{
+				position: absolute;
+				border:1px solid #fff;
+				width: 200px;
+				height: 200px;
+				cursor: move;
+			}
+			.minDiv{
+				position: absolute;
+				width: 8px;
+				height: 8px;
+				background: #fff;
+			}
+			.left-up{
+				left: -4px;
+				top:-4px;
+				cursor: nw-resize;
+			}
+			.up{
+				left: 50%;
+				margin-left: -4px;
+				top:-4px;
+				cursor: n-resize;
+			}
+			.right-up{
+				right: -4px;
+				top: -4px;
+				cursor: ne-resize;
+			}
+			.right{
+				right: -4px;
+				top: 50%;
+				margin-top: -4px;
+				cursor: e-resize;
+			}
+			.right-down{
+				right: -4px;
+				bottom: -4px;
+				cursor: se-resize;
+			}
+			.down{
+				bottom: -4px;
+				left: 50%;
+				margin-left: -4px;
+				cursor: s-resize;
+			}
+			.left-down{
+				left: -4px;
+				bottom: -4px;
+				cursor: sw-resize;
+			}
+			.left{
+				top: 50%;
+				left: -4px;
+				margin-top: -4px;
+				cursor: w-resize;
+			}
+
+			#preview{
+				position: absolute;
+				top:10px;
+				left :800px;
+			}
+			#preview img{
+				position: absolute;
+			}
+		</style>	
+	</head>
+
+	<body>
+		<div id="box">
+			<img src="img/1.jpg" id="img1"/>
+			<img src="img/1.jpg" id="img2"/>
+
+			<div id="main">
+				<div id="left_up" class="minDiv left-up"></div>
+				<div id="up" class="minDiv up"></div>
+				<div id="right_up" class="minDiv right-up"></div>
+				<div id="right" class="minDiv right"></div>
+				<div id="right_down" class="minDiv right-down"></div>
+				<div id="down" class="minDiv down"></div>
+				<div id="left_down" class="minDiv left-down"></div>
+				<div id="left" class="minDiv left"></div>
+			</div>
+		</div>
+		<div id="preview">
+			<img src="img/1.jpg" id="img3"/>
+		</div>
+		<script type="text/javascript" src="js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>
+</html>
