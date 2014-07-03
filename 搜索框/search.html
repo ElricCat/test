@@ -27,7 +27,51 @@
 				<li>手提电脑</li>
 			<ul>
 		</div>
+		<!-- jq
 		<script src="js/jquery-1.11.1.js"></script>
 		<script src="js/script.js"></script>
+		-->
+		<script type="text/javascript">
+			var getDOM = function(id){
+				return document.getElementById(id);
+			}
+			var addEvent = function(id,event,fn){
+				var el = getDOM(id) || document;
+				if(el.addEventListener){
+					el.addEventListener(event,fn,false);
+				}else if(el.attachEvent){
+					el.attachEvent('on'+event,fn);
+				}else{
+					el['on'+event] = fn;
+				}
+			}
+			var getElementLeft = function(element){
+				var actualLeft = element.offsetLeft;
+				var current = element.offsetParent;
+
+				while(current !== null){
+					actualLeft += current.offsetLeft;
+					current = current.offsetParent;
+				}
+				return actualLeft;
+			}
+
+			var getElementTop = function(element){
+				var actualTop = element.offsetTop;//到父元素
+				var current = element.offsetParent;
+				while(current != null){
+					actualTop += current.offsetTop;
+					current = current.offsetParent;
+				}
+				return actualTop;
+			}
+
+			addEvent('search_input','keyup',function(){
+				getDOM('search_suggest').style.top = getElementTop(getDOM('search_form'))+48+'px';
+				getDOM('search_suggest').style.left = getElementLeft(getDOM('search_form'))-1+'px';
+				getDOM('search_suggest').style.position = 'absolute';
+				getDOM('search_suggest').style.display = 'block';
+			})
+		</script>
 	</body>
 </html>
