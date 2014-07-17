@@ -117,7 +117,7 @@
 						<input type="text" id="username">
 					</div>
 					<div class="page" id="page2">
-						<legend>Password Info</legend>
+						<legend>Password</legend>
 						<label for="password">Password</label>
 						<input type="password" id="password">
 						<label for="passwordagain">Password Again</label>
@@ -149,34 +149,41 @@
 
 	<script type="text/javascript" src="./scripts/jquery-1.11.1.js"></script>
 	<script type="text/javascript">
-			var x = 0,y = 0;
+			var y = 0;
 			function next(){
+				//prev按钮的显示与隐藏
 				if($("#prev").css('visibility') == "hidden"){
 					$("#prev").css('visibility','visible');
 				}
+
 				if($("#box").css("-webkit-transition") != '-webkit-transform 1s linear'){
 					$("#box").css("-webkit-transition","-webkit-transform 1s linear");
 				}
 				y-=90;
 				$("#box").css('-webkit-transform', 'rotateY('+y+'deg)');
 
+				//Next按钮的显示与隐藏
 				if(y == -270){
 					$("#next").css("visibility",'hidden');
 				}else{
 					$("#next").css('visibility', 'visible');
 				}
+
 				console.log(y);
 			}
 
 			function prev(){
+				//Next按钮的显示与隐藏
 				if($("#next").css('visibility') == "hidden"){
 					$("#next").css('visibility','visible');
 				}
+
 				if($("#box").css("-webkit-transition") != '-webkit-transform 1s linear'){
 					$("#box").css("-webkit-transition","-webkit-transform 1s linear");
 				}
 				y+=90;
 				$("#box").css('-webkit-transform', 'rotateY('+y+'deg)');
+				//prev按钮的显示与隐藏
 				if(y == 0){
 					$("#prev").css("visibility",'hidden');
 				}else{
