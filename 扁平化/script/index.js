@@ -1,27 +1,71 @@
 			  /*导航栏*/
-			 $("#pages").on("mouseenter", function() {
-			 	$("#pages .dropdown").css("display", "block");
-			 });
-			 $("#pages").on("mouseleave", function() {
-			 	$("#pages .dropdown").css("display", "none");
-			 });
-			 $("#portfolio").on("mouseenter", function() {
-			 	$("#portfolio .dropdown").css("display", "block");
-			 });
-			 $("#portfolio").on("mouseleave", function() {
-			 	$("#portfolio .dropdown").css("display", "none");
+			 //主页
+			 $("#list_home").on("click",function(){
+			 	clearActive();
+			 	$("#list_home").addClass('list-active');
 			 });
 
-			  $("#contact").on("mouseenter",function(){
+			 //关于我
+			 $("#list_about").on("click",function($event){
+			 	clearActive();
+			 	$("#list_about").addClass('list-active');
+			 });
+
+			 //PORTFOLIO
+			 $("#list_portfolio").on("mouseenter", function() {
+			 	$("#list_portfolio .dropdown").css("display", "block");
+			 });
+			 $("#list_portfolio").on("mouseleave", function() {
+			 	$("#list_portfolio .dropdown").css("display", "none");
+			 });
+
+			  //音乐
+			 $("#list_music").on("click",function(event){
+			 	clearActive();
+			 	if(event.target.innerHTML == "MUSIC"){
+			 		document.getElementById("music-bar").play();
+			 		event.target.innerHTML = "PAUSE";
+			 		$("#list_music").addClass('music-active');
+			 	}
+			 	else if(event.target.innerHTML == "PAUSE"){
+			 		clearMusicActive();
+			 		document.getElementById("music-bar").pause();
+			 		event.target.innerHTML = "MUSIC";
+			 		$("#list_music").removeClass('music-active');
+			 		$("#list_music").addClass('list-active');
+			 	}
+			 });
+
+			 //PAGES
+			 $("#list_pages").on("mouseenter", function() {
+			 	$("#list_pages .dropdown").css("display", "block");
+			 });
+			 $("#list_pages").on("mouseleave", function() {
+			 	$("#list_pages .dropdown").css("display", "none");
+			 });
+			
+			 //联系我
+			 $("#list_contact").on("mouseenter",function(){
+			  	clearActive();
 			 	$(".contact").css({"display":"block","z-index":"2001"});
-			 	$("#contact").addClass('list-active');
+			 	$("#list_contact").addClass('list-active');
 			 });
 			 $(".contact").on("mouseleave",function(){
+			 	clearActive();
 			 	$(".contact").css("display","none");
-			 	$("#contact").removeClass('list-active');
+			 	$("#list_contact").removeClass('list-active');
 			 });
-			 /*图片浏览*/
 
+			 //清除所有的active类
+			 function clearActive(){
+			 	$(".list-group").children('li').removeClass('list-active');
+			 }
+			 function clearMusicActive(){
+			 	$(".list-group").children('#list_music').removeClass('music-active');
+			 }
+
+			 /*图片浏览*/
+			 //上一张图片
 			 $("#previmg").on("click", function() {
 			 	var index = $(".bg-img").attr('class');
 			 	index = index.substr(-1, 1);
@@ -52,6 +96,7 @@
 			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
 			 });
 
+			 //下一张图片
 			 $("#nextimg").on("click", function() {
 			 	var index = $(".bg-img").attr("class");
 			 	index = index.substr(-1, 1);
@@ -81,6 +126,7 @@
 			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
 			 });
 
+			 //轮播底部控制按钮
 			 $(".bottom-control span").on("click", function(event) {
 			 	var currentindex = parseInt(event.target.title);
 
@@ -94,6 +140,7 @@
 			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
 			 })
 
+			 //修改图片上面的文字
 			 function changeDescript(currentindex) {
 			 	switch (currentindex) {
 			 		case 1:
@@ -110,111 +157,4 @@
 			 			break;
 			 	}
 			 }
-
-			 function getDOM(id) {
-			 	return document.getElementById(id);
-			 }
-			 $(function() {
-			 	var jscv = getDOM("js"),
-			 		csscv = getDOM("css"),
-			 		html5cv = getDOM("html5"),
-			 		nodejscv = getDOM("nodejs");
-			 	
-			 	
-			 	jsdraw(jscv, "#E74C3C", 1/2);
-			 	cssdraw(csscv,"#3CEE7C",2/3);
-			 	html5draw(html5cv, "#26A8F1", 2/5);
-			 	nodejsdraw(nodejscv, "#F1EA32", 1/4);
-
-			 	function init(obj,color,deg) {
-			 		var ctx = obj.getContext("2d"),
-			 			W = obj.width,
-			 			H = obj.height;
-
-			 		ctx.clearRect(0, 0, W, H);
-			 		//第一个圆
-			 		ctx.beginPath();
-			 		ctx.strokeStyle = "#ddd";
-			 		ctx.lineWidth = 20;
-			 		ctx.arc(W / 2, H / 2, 60, 0, Math.PI * 2, false);
-			 		ctx.stroke();
-
-			 		//第二个圆
-			 		var r = deg * Math.PI / 180;
-			 		ctx.beginPath();
-			 		ctx.strokeStyle = color;
-			 		ctx.lineWidth = 20;
-			 		ctx.arc(W / 2, H / 2, 60, 0 - 90 * Math.PI / 180, r - 90 * Math.PI / 180, false);
-			 		ctx.stroke();
-
-			 		ctx.fillStyle = color;
-			 		ctx.font = "30px microsoft yahei";
-			 		text = Math.floor(deg / 360 * 100) + "%";
-			 		text_w = ctx.measureText(text).width;
-			 		ctx.fillText(text, W / 2 - text_w / 2, H / 2 + 15);
-			 	}
-
-			 	function jsdraw(obj,color,percent){
-			 		var deg = 0,new_deg = 0,dif = 0;
-			 		new_deg = Math.round(percent*360);
-			 		dif = new_deg - deg;
-			 		var jsloop = setInterval(function(){
-			 					if (deg >= new_deg) {
-			 						clearInterval(jsloop);
-			 					}
-			 					else if (deg < new_deg) {
-			 						deg++;
-			 					}
-			 					init(obj,color,deg);
-			 		}, 1000 / dif);
-			 		console.log("jsloop finished");
-			 	}
-
-			 	function cssdraw(obj,color,percent){
-			 		var deg = 0,new_deg = 0,dif = 0;
-			 		new_deg = Math.round(percent*360);
-			 		dif = new_deg - deg;
-			 		var cssloop = setInterval(function(){
-			 					if (deg >= new_deg) {
-			 						clearInterval(cssloop);
-			 					}
-			 					else if (deg < new_deg) {
-			 						deg++;
-			 					}
-			 					init(obj,color,deg);
-			 		}, 1000 / dif);
-			 		console.log("cssloop finished");
-			 	}
-
-			 	function html5draw(obj,color,percent){
-			 		var deg = 0,new_deg = 0,dif = 0;
-			 		new_deg = Math.round(percent*360);
-			 		dif = new_deg - deg;
-			 		var html5loop = setInterval(function(){
-			 					if (deg >= new_deg) {
-			 						clearInterval(html5loop);
-			 					}
-			 					else if (deg < new_deg) {
-			 						deg++;
-			 					}
-			 					init(obj,color,deg);
-			 		}, 1000 / dif);
-			 		console.log("html5loop finished");
-			 	}
-			 	function nodejsdraw(obj,color,percent){
-			 		var deg = 0,new_deg = 0,dif = 0;
-			 		new_deg = Math.round(percent*360);
-			 		dif = new_deg - deg;
-
-			 		var nodejsloop = setInterval(function(){
-			 					if (deg >= new_deg) {
-			 						clearInterval(nodejsloop);
-			 					}
-			 					else if (deg < new_deg) {
-			 						deg++;
-			 					}
-			 					init(obj,color,deg);
-			 		}, 1000 / dif);
-			 		console.log("nodejsloop finished");
-			 	}
-			 });
+			 
