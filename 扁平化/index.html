@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Metro Style</title>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+	<body>
+		<div class="nav-bar">			
+			<div class="nav-logo" title="shiren">THE POET</div>
+			<nav class="nav">
+				<ul class="list-group ">
+					<li id="home" class="list-active">
+						<a href="#">HOME</a>
+					</li>
+					<li>
+						<a href="#about">ABOUT</a>
+					</li>
+					<li id="portfolio">
+						<a href="javascript:;">PORTFOLIO</a>
+						<ul class="dropdown">
+							<li>
+								<a href="">portfolio 3col</a>
+							</li>
+							<li>
+								<a href="">portfolio 4col</a>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="javascript:;">BLOG</a>
+					</li>
+					<li id="pages">
+						<a href="javascript:;">PAGES</a>
+						<ul class="dropdown">
+							<li>
+								<a href="">SINGLE POST</a>
+							</li>
+							<li>
+								<a href="">SINGLE WORK</a>
+							</li>
+						</ul>
+					</li>
+					<li id="contact">
+						<a href="javascript:;">CONTACT</a>
+					</li>
+				</ul>
+			</nav>
+		</div><!--end of nav-bar -->
+
+		<!--图片浏览-->
+		<div class="slider-container">
+			<!--照片内容-->
+			<div class="slider-content">
+				<div id="bgimg" class="bg-img bg-img1"></div>
+			</div>
+
+			<!--向前向后控制按钮-->
+			<div class="control">
+				<span id="previmg" class="prev-control"></span>
+				<span id="nextimg" class="next-control"></span>
+			</div>
+
+			<!--文字描述-->
+			<div class="descript">
+				<span class="img-descript">Ian Joseph Somerhalder</span><br>
+				<span class="img-desctipt-detail">扮演吸血鬼日记男主角-Demon</span>
+			</div>
+
+			<!--底部控制按钮-->
+			<nav class="bottom-control">
+				<span class="current" title="1"></span>
+				<span title="2"></span>
+				<span title="3"></span>
+			</nav>
+		</div>
+
+		<!--关于我-->
+		<div id="about" name="about" class="about">
+			<div class="about-title">
+				<h1>ABOUT ME</h1>
+				<div></div>
+			</div>
+			<div class="about-descript">
+				<span>
+					I am CaiBin,a young front-end lovers.who love program and trying being an excellent developer.
+				</span>
+			</div>
+			<div class="skill-bar">
+				<div class="skill">
+					<div class="javascript">
+						<canvas id="js" width="140" height="140">61%</canvas>
+					</div>
+					<span>JavaScript</span>
+				</div>
+				<div class="skill">
+					<div class="css">
+						<canvas id="css" width="140" height="140">CSS</canvas>
+					</div>
+					<span>CSS/CSS3</span>
+				</div>
+				<div class="skill">
+					<div class="html5">
+						<canvas id="html5" width="140" height="140">HTML5</canvas>
+					</div>
+					<span>HTML5</span>
+				</div>
+				<div class="skill">
+					<div class="nodejs">
+						<canvas id="nodejs" width="140" height="140">NodeJs</canvas>
+					</div>
+					<span>NodeJS</span>
+				</div>
+			</div>
+		</div>
+		<div class="contact">
+			<div class="contact-item">
+				<a href="http://weibo.com/2331277154/profile?topnav=1&wvr=5&user=1" target="_blank" title="新浪微博">
+					<span id="sinaweibo-contact"></span>
+				</a>
+			</div>
+			<div class="contact-item">
+				<a href="" title="腾讯微博">
+					<span id="txweibo-contact"></span>
+				</a>
+			</div>
+			<div class="contact-item">
+				<a href="" title="微信">
+					<span id="wechat-contact"></span>
+				</a>
+			</div>
+			<div class="contact-item">
+				<a href="" title="QQ">
+					<span id="qq-contact"></span>
+				</a>
+			</div>
+			<div class="contact-item">
+				<a href="" title="facebook">
+					<span id="facebook-contact" title="facebook"></span>
+				</a>
+			</div>
+		<div>
+		<script type="text/javascript" src="./script/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="./script/index.js"></script>
+	</body>
+</html>
