@@ -22,12 +22,12 @@
 			  //音乐
 			 $("#list_music").on("click",function(event){
 			 	clearActive();
-			 	if(event.target.innerHTML == "MUSIC"){
+			 	if(event.target.innerHTML === "MUSIC"){
 			 		document.getElementById("music-bar").play();
 			 		event.target.innerHTML = "PAUSE";
 			 		$("#list_music").addClass('music-active');
 			 	}
-			 	else if(event.target.innerHTML == "PAUSE"){
+			 	else if(event.target.innerHTML === "PAUSE"){
 			 		clearMusicActive();
 			 		document.getElementById("music-bar").pause();
 			 		event.target.innerHTML = "MUSIC";
@@ -82,13 +82,13 @@
 			 			//2 的下一张是 1
 			 			$(".bg-img").removeClass('bg-img' + index);
 			 			$(".bg-img").addClass('bg-img1');
-			 			var currentindex = 1;
+			 			currentindex = 1;
 			 			break;
 			 		case '3':
 			 			//3 的下一张是 2
 			 			$(".bg-img").removeClass('bg-img' + index);
 			 			$(".bg-img").addClass('bg-img2');
-			 			var currentindex = 2;
+			 			currentindex = 2;
 			 			break;
 			 	}
 			 	changeDescript(currentindex);
