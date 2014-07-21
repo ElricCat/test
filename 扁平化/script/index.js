@@ -23,20 +23,20 @@
 			 $("#list_music").on("click",function(event){
 			 	clearActive();
 			 	if(event.target.innerHTML === "MUSIC"){
-			 		document.getElementById("music-bar").play();
+			 		getDOM("music-bar").play();
 			 		event.target.innerHTML = "PAUSE";
 			 		$("#list_music").addClass('music-active');
 			 	}
 			 	else if(event.target.innerHTML === "PAUSE"){
 			 		clearMusicActive();
-			 		document.getElementById("music-bar").pause();
+			 		getDOM("music-bar").pause();
 			 		event.target.innerHTML = "MUSIC";
 			 		$("#list_music").removeClass('music-active');
 			 		$("#list_music").addClass('list-active');
 			 	}
 			 });
 
-			 //PAGES
+			 //视频
 			 $("#list_pages").on("mouseenter", function() {
 			 	$("#list_pages .dropdown").css("display", "block");
 			 });
@@ -44,6 +44,85 @@
 			 	$("#list_pages .dropdown").css("display", "none");
 			 });
 			
+			 $("#video1").on("click",function(){
+			 	clearActive();//清除所有样式
+			 	getDOM("music-bar").pause();//暂停音乐
+			 	var video1Div = $("<div></div>"),
+			 		video1Mask = $("<div></div>"),
+			 		video1 = $("<video></video>"),
+			 		control = $("<div></div>"),
+			 		source = $("<source></source>")
+				control.css({
+					'position':'absolute',
+					'top':'50px',
+					'right':'50px',
+					'width': '50px',
+					'height': '50px',
+					'z-index':'3000',
+					'background':'url(./image/close.png)',
+					'background-size':'50px 50px',
+					'cursor':'pointer',
+					'border':'1px solid #6699cc',
+					'border-radius':'50%'
+				});
+				control.attr({
+					'id':'closevideo1',
+					'title':'关闭'
+				});
+			 	video1Div.attr('id', 'video1div');
+			 	video1Div.css({
+			 		"position":"absolute",
+			 		'width': '800px',
+			 		'height': '600px',
+			 		"left":"300px",
+			 		"top":"50px"
+			 	}); 
+			 	source.attr({
+			 		//视频在github上就不包括了，只是一个示例
+			 		'src': './video/video1.mp4',
+			 		'type': 'video/mp4'
+			 	});	
+			 	video1.attr({
+			 		'controls': 'controls',
+			 		'id':'video1mp4',
+			 		'autoplay':'autoplay',
+			 		'width': '800px',
+			 		'height': '520px'
+			 	});
+				video1.append(source);
+				video1.append('你的浏览器不支持HTML5的video标签');
+			 	video1Mask.attr('id', 'video1mask');
+			 	video1Mask.css({
+			 		"position":"fixed",
+			 		"top":0,
+			 		"left":0,
+			 		"width": '100%',
+			 		"height": '766px',
+			 		"background-color":'rgba(0,0,0,0.9)',
+			 		"z-index":"2004"
+			 	});
+			 	video1Div.append(video1);
+			 	video1Mask.append(video1Div);
+			 	$("body").append(control);
+			 	$("body").append(video1Mask);
+
+			 	$("#closevideo1").on("click",function(){
+			  		$("#video1mp4").remove();
+			  		
+			  		$("#video1div").remove();
+			  		
+			  		$("#video1mask").remove();
+			  		
+			  		$("#closevideo1").remove();
+			  		
+			  		if($("#list_music > a").html() === "PAUSE"){
+			  			getDOM("music-bar").play();
+			  		}
+			  	});
+			 });
+			 
+			  
+
 			 //联系我
 			 $("#list_contact").on("mouseenter",function(){
 			  	clearActive();
