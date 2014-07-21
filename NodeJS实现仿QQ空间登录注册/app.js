@@ -76,14 +76,14 @@ function authenticate(name,pass,fn){
 			//user.password!=pass将永远返回true，即使它们的字面值是相等的。
 			var upass = user.password;
 			if(err)
-				return fn(new Error('can not find user'+user));
+				return fn(new Error('找不到用户'+user));
 			else if(upass != pass){
-				return fn(new Error("invalid passowrd."));
+				return fn(new Error("密码错误"));
 			}else{
 				return fn(null,user);
 			}
 		}else{
-			return fn(new Error('can not find user'));
+			return fn(new Error('找不到用户'));
 		}
 	});
 }
@@ -92,7 +92,7 @@ function requiredAuthentication(req,res,next){
 	if(req.session.user){
 		next();
 	}else{
-		req.session.error="Access denied!";
+		req.session.error="没有权限";
 		req.redirect("/login");
 	}
 }
@@ -103,7 +103,7 @@ function userExist(req,res,next){
 		if(count == 0){
 			next();
 		}else{
-			req.session.error = "User Exist";
+			req.session.error = "用户已存在";
 			res.redirect("/login");
 		}
 	});
