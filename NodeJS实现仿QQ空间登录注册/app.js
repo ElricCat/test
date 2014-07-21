@@ -1,3 +1,9 @@
+/*
+ * 一个 用 nodejs实现的模仿QQ空间
+ * 蔡斌
+ * v0.1
+*/
+
 var express = require("express"),
 	logger = require("morgan");
 	bodyParser = require('body-parser'),
