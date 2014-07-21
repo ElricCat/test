@@ -1,0 +1,96 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background: #70CBF7;
+}
+#login-form{
+	width: 400px;
+	height: 199px;
+	margin: 0 auto;
+	margin-top: 10%;
+	background: #33B8F7;
+	color: #fff;
+	border:none;
+	font-family: 'microsoft yahei';
+	border-radius: 8px;
+}
+#login-form fieldset{
+	border: none;
+}
+#login-form div{
+	height: 45px;
+	padding: 10px;
+}
+#login-form div:first-child{
+	padding-top: 20px;
+	padding-bottom: 0;
+}
+#login-form label{
+	float: left;
+	width: 25%;
+	height: 25px;
+	line-height: 25px;
+	text-align: right;
+	margin-right: 10px;
+}
+#login-form input{
+	float: left;
+	width: 65%;
+	height: 25px;
+	line-height: 20px;
+	outline: none;
+	padding-left: 3px;
+	border-radius: 4px;
+	border: 1px solid #33B8F7;
+	background: #fff!important;
+}
+
+#login-form div[class="btn-div"]{
+	padding-top: 10px;
+}
+#login-form button{
+	float: left;
+	margin: 0 0 0 80px;
+	width: 50px;
+	height: 30px;
+	font-size: 1em;
+	cursor: pointer;
+	border: none;
+	border-radius: 4px;
+	background: #056391;
+	outline: none;
+}
+#login-form button:hover{
+	background: #048FD3;
+	color: #fff;
+}
+#login-form a{
+	width: 80px;
+	height: 30px;
+	padding-left: 10px;
+	font-size: 0.95em;
+	text-align: center;
+	margin-top: 8px;
+	text-decoration: none;
+	color: #480;
+	display: inline-block;
+}
+#login-form a:hover{
+	color: #fff;
+	text-decoration: underline;
+}
+#login-error{
+	color: red;
+	font-weight: bold;
+	margin-left: 35.4%;
+	margin-top: 1px;
+	width: 400px;
+	height: 30px;
+	background: #70CBF7;
+	text-align: center;
+	line-height: 25px;
+	border-radius: 2px;
+	color: rgb(236, 109, 109);
+}

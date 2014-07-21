@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>注册</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="./css/signup.css">
+		<script type="text/javascript" src="./js/ejs_production.js"></script>
+	</head>
+	<body>
+		<div id="signup-form-div">
+			<form action="/signup" method="post" id="signup-form">
+				<fieldset>
+					<div>
+						<label>注册邮箱:</label>
+						<input name="email" id="email"type="text" required autofocus/>
+						<i id="email_error">邮箱格式错误</i>
+					</div>
+					<div>
+						<label>用户名:</label>
+						<input name="username" id="username" type="text" required />
+						<i id="user_error">5-20个以字母开头的数字字母和下划线“_”组成</i>
+					</div>
+					<div>
+						<label>密码:</label>
+						<input name="password" id="password" type="password" required />
+					</div>
+					<div id="pass-level">
+						密码强度:<span id="weak"></span><span id="normal"></span><span id="strong"></span>
+						<span id="level"></span>
+					</div>
+					<div>
+						<label>确认密码:</label>
+						<input name="passowrd2" id="password2" type="password" required/>
+						<i id="diffpass">两次输入的密码不一致</i>
+					</div>
+					<div>
+						<button type="submit" id="submit">提交</button>
+						<a href="/login">返回登录</a>
+						<em id="msg"><%=message %></em>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+		<script type="text/javascript" src="./js/signup.js"></script>
+	</body>
+</html>

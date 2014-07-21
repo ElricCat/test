@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta Charset="utf-8">
+		<title>空间登录</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script type="text/javascript" src="./js/ejs_production.js"></script>
+	</head>
+	<body>
+		<div id="login-form">
+			<form action="/login" method="post">
+				<fieldset>
+						<div>
+							<label>用户名：</label>
+							<input type="text" name="username" autofocus/>
+						</div>
+						<div>
+							<label>密码：</label>
+							<input type="password" name="password">
+						</div>
+						<div class="btn-div">
+							<button type="submit">登录</button>
+							<a href="#">忘记密码</a>
+							<a href="/signup">注册</a>
+						</div>
+				</fieldset>
+			</form>
+		</div>
+		<div id="login-error">
+			<span><%=message %></span>
+		</div>
+	</body>
+</html>

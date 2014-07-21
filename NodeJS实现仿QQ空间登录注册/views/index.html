@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title><%=title%></title>
+		<link rel="stylesheet" type="text/css" href="./css/index.css">
+	</head>
+	<body>
+		<div class="bg-contain"></div>
+		<div class="nav-div">
+		<nav class="nav">
+			<a href="" class="logo"></a>
+			<ul>
+				<li class="person-center">
+					<a href="" class="person-center-a">
+						<i class="person-center-logo"></i>
+						<span>个人中心</span>
+					</a>
+				</li>
+				<li class="home-page">
+					<a href="" class="home-page-a">
+						<i class="home-page-logo"></i>
+						<span>我的主页</span>
+					</a>
+				</li>
+				<li class="friend">
+					<a href="" class="friend-a">
+						<i class="friend-logo"></i>
+						<span>好友</span>
+					</a>
+				</li>
+				<li class="app">
+					<a href="" class="app-a">
+						<i class="app-logo"></i>
+						<span>应用</span>
+					</a>
+				</li>
+				<li class="dress">
+					<a href="" class="dress-a">
+						<i class="dress-logo"></i>
+						<span>装扮</span>
+					</a>
+				</li>
+				<li class="music">
+					<a>
+						<i class="music-logo"></i>
+						<i class="music-dynamic-logo"></i>
+					</a>
+				</li>
+				<li class="form">
+					<form id="inline-form" action="" method="post">
+						<input type="text" id="search_text" placeholder="用户/应用">
+						<button id="sub_btn" tpye="submit"></button>
+					</form>
+				</li>
+				<li id="user"><a href="/userinfo?user=<%=user %>"><%=user%></a></li>
+				<li class="exit">
+					<a href="/logout" title="退出"><span class="exit-logo"></span></a>
+				</li>
+				<li class="setting">
+					<span></span>
+				</li>
+				<li class="vip">
+					<span></span>
+				</li>
+				<li class="happy">
+					<span></span>
+				</li>
+			</ul>
+		</nav>
+		</div>
+		<div class="contain">
+
+		</div>
+		<div class="to-top">
+			<a href="javascript:;" id="tp">
+				<i></i>
+				<span>顶部</span>
+			</a>
+			<a href="#" id="hot">
+				<i></i>
+				<span>热点</span>
+			</a>
+		</div>
+		<script type="text/javascript" src="./js/jquery-1.11.1.js"></script>
+		<script type="text/javascript">
+			$("#search_text").on("focus",function(){
+				$("#sub_btn").css("background-color","#fff");
+			});
+			$("#search_text").on("blur",function(){
+				$("#sub_btn").css("background-color","#70CBF7");
+			});
+			$("#tp i").on("mouseenter",function(){
+				$("#tp i").css("display","none");
+				$("#tp span").css("display","block");
+			});
+			$("#tp span").on("mouseout",function(){
+				$("#tp i").css("display","block");
+				$("#tp span").css("display","none");
+			});
+			$("#hot i").on("mouseenter",function(){
+				$("#hot i").css("display","none");
+				$("#hot span").css("display","block");
+			});
+			$("#hot span").on("mouseout",function(){
+				$("#hot i").css("display","block");
+				$("#hot span").css("display","none");
+			});
+			$("#tp").on("click",function(){
+				window.scrollTo(0, 0);
+			});
+		</script>
+	</body>
+</html>

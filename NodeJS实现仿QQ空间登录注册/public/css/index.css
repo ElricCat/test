@@ -1,0 +1,317 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	position: relative;
+	background: url(../images/body_bg.png) repeat;
+	width: 1366px;
+	height: 1500px;
+	overflow-x:hidden;
+}
+.bg-contain{
+	position: absolute;
+	background: url(../images/index_top.webp) no-repeat;
+	width: 1366px;
+	height:250px;
+	top: 40px;
+}
+.nav-div{
+	position: relative;
+	background: #33B8F7;
+	width: 1366px;
+	height: 40px;
+}
+.nav ul{
+	list-style: none;
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	padding-left: 15%;
+	background-color: #33B8F7;
+	margin-left: 80px;
+}
+.nav ul li{
+	float: left;
+	width: 77px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 12px;
+	font-family: 'microsoft yahei';
+	color: #000;
+	display: inline-block;
+	border:none;
+	text-align: center;
+	cursor: pointer;
+}
+.nav ul li:hover{
+	background: #048FD3;
+}
+
+.nav-div .logo{
+	position: absolute;
+	left: 165px;
+	float: left;
+	background: url(../images/logo.png);
+	width: 90px;
+	height: 41px;
+	background-position: 0px 0px;
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	color: #fff;
+	z-index: 1;
+}
+
+ul li a{
+	text-decoration: none;
+	height: 40px;
+}
+ul li a:link,ul li a:visited,ul li a:hover,ul li a:focus,ul li a:active{
+	color: #fff;
+}
+
+/*从左至右依次设置*/
+.nav ul .person-center-logo{
+	background: url(../images/nav.png);
+	background-position: -715px 0px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: -90px;
+	top: 12px;
+	margin-left: 100px;
+}
+.nav ul .home-page-logo{
+	background: url(../images/nav.png);
+	background-position: -715px -50px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+}
+.nav ul li[class="person-center"],.nav ul li[class="home-page"]{
+	width: 91px;
+	line-height: 40px;
+	position: relative;
+}
+.nav ul li a[class="person-center-a"],.nav ul li a[class="home-page-a"]{
+	padding: 0 10px 0 33px;
+}
+.nav ul .friend-logo{
+	background: url(../images/nav.png);
+	background-position: -715px -25px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+}
+.nav ul .app-logo{
+	background: url(../images/nav.png);
+	background-position: -715px -75px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+}
+.nav ul .dress-logo{
+	background: url(../images/nav.png);
+	background-position: -715px -100px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	left: 10px;
+	top: 12px;
+}
+.nav ul li[class="friend"],.nav ul li[class="app"],.nav ul li[class="dress"]{
+	width: 77px;
+	line-height: 40px;
+	position: relative;
+}
+.nav ul li a[class="friend-a"],.nav ul li a[class="app-a"],.nav ul li a[class="dress-a"]{
+	padding: 0 10px 0 33px;
+}
+
+.nav ul .music{
+	margin-left: 77px;
+}
+.nav ul .music a{
+	height: 41px;
+	width: 77px;
+	line-height: 41px;
+}
+
+.nav ul .music .music-logo{
+	background: url(../images/nav.png);
+	background-position: -715px -175px;
+	width: 16px;
+	height: 16px;
+	padding-top: -2px;
+	display: inline-block;
+	padding: -1px 5px 0 5px;
+}
+.nav ul .music .music-dynamic-logo{
+	background: url(../images/nav.png);
+	background-position: -740px 0px;
+	width: 16px;
+	height: 16px;
+	padding-top: -2px;
+	display: inline-block;
+}
+
+.nav ul .form{
+	width: 200px;
+	position: relative;
+}
+.nav ul .form:hover{
+	background: #33B8F7;
+}
+.nav ul .form input{
+	height: 24px;
+	line-height: 20px;
+	width: 80%;
+	margin-left: 0;
+	border-radius: 2px;
+	border:none;
+	padding-left: 4px;
+	color: gray;
+	font-size: 14px;
+	background-color: #70CBF7;
+}
+.nav ul .form input:focus{
+	background-color: #fff;
+}
+.nav ul .form button{
+	position: absolute;
+	right: 20px;
+	top: 12px;
+	background: url(../images/nav-logo.png);
+	background-position: -740px -50px;
+	width: 18px;
+	height: 18px;
+	border:none;
+	background-color: #70CBF7;
+	cursor: pointer;
+}
+
+.nav ul .exit-logo{
+	background: url(../images/nav.png);
+	background-position: -740px -25px;;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-top: 12px;
+}
+.nav ul .exit{
+	width: 30px;
+}
+.nav ul .setting span{
+	background: url(../images/nav.png);
+	background-position: -740px -50px;
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	margin-top: 12px;
+	font-size: 16px;
+}
+.nav ul .setting{
+	width: 30px;
+}
+.nav ul .vip span{
+	background: url(../images/qzone-vip.gif);
+	display: inline-block;;
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+}
+.nav ul .vip{
+	width: 22px;
+}
+.nav ul .happy span{
+	background: url(../images/happy.gif);
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	margin-left: 20px;
+	display: inline-block;
+}
+.nav ul .happy{
+	width: auto;
+}
+
+.to-top{
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	width: 45px;
+	height: 91px;
+}
+.to-top #tp i{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: block;
+	width: 25px;
+	height: 25px;
+	background: url(../images/logo.png);
+	background-position: -246px 0px;
+	margin:0 auto;
+}
+.to-top #tp span{
+	position: absolute;
+	display: none;
+	width: 45px;
+	height: 30px;
+	top: 15px;
+	text-decoration: none;
+	color: #000;
+	font-size: 12px;
+	font-family: "microsoft yahei";
+}
+
+.to-top #tp{
+	display: block;
+	background-color: #fff;
+	text-align: center;
+	width: 45px;
+	height: 35px;
+	border-bottom: #ddedf0 1px solid;
+	padding-top: 10px;
+}
+.to-top #hot{
+	display: block;
+	background-color: #fff;
+	text-align: center;
+	width: 45px;
+	height: 35px;
+	padding-top: 10px;
+}
+.to-top #hot i{
+	display: block;
+	width: 30px;
+	height: 26px;
+	background: url(../images/logo.png);
+	background-position: -299px 0px;
+	margin:0 auto;
+	cursor: auto;
+}
+.to-top #hot span{
+	position: absolute;
+	display: none;
+	width: 45px;
+	height: 30px;
+	top: 60px;
+	text-decoration: none;
+	color: #000;
+	font-size: 12px;
+	font-family: "microsoft yahei";
+}
+
