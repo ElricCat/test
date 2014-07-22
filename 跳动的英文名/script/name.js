@@ -13,7 +13,7 @@ var WINDOW_WIDTH, //整个窗口的宽度
 
 var name = "CAI BIN"; //默认的名字：即作者的名字
 
-var balls = [];			//用来存放跳动的小球
+var balls = [];		 //用来存放跳动的小球
 
 var intervalHandler;	//用来控制小球跳动与否
 
@@ -23,10 +23,12 @@ const endTime = new Date(2014,7,22,18,47,52);
 //当前秒数，用于和10秒后的秒数进行对比以此来控制时间间隔
 var curShowTimeSeconds = 0;	
 
-var drawbtn = document.getElementById("begin");
+//停止
 var stopbtn = document.getElementById("stop");
-
 stopbtn.addEventListener("click",stopDraw);
+
+//开始
+var drawbtn = document.getElementById("begin");
 drawbtn.addEventListener("click",function(){
 	endTime = document.getElementById("lasttime").value;
 	name = document.getElementById("name").value;
