@@ -1,12 +1,9 @@
-function getDOM(id) {
-	return document.getElementById(id);
-}
 //这里主要是在页面加载的时候画出About Me中的四个圆环.
 $(function() {
-	var jscv = getDOM("js"),
-		csscv = getDOM("css"),
-		html5cv = getDOM("html5"),
-		nodejscv = getDOM("nodejs");
+	var jscv = $("#js")[0],
+		csscv = $("#css")[0],
+		html5cv = $("#html5")[0],
+		nodejscv = $("#nodejs")[0];
 
 	jsdraw(jscv, "#E74C3C", 1 / 2);
 	cssdraw(csscv, "#3CEE7C", 2 / 3);
@@ -25,6 +22,7 @@ $(function() {
 		ctx.lineWidth = 20;
 		ctx.arc(W / 2, H / 2, 60, 0, Math.PI * 2, false);
 		ctx.stroke();
+		ctx.closePath();
 
 		//第二个圆
 		var r = deg * Math.PI / 180;
@@ -33,7 +31,8 @@ $(function() {
 		ctx.lineWidth = 20;
 		ctx.arc(W / 2, H / 2, 60, 0 - 90 * Math.PI / 180, r - 90 * Math.PI / 180, false);
 		ctx.stroke();
-
+		ctx.closePath();
+		
 		//圆中心的数字
 		ctx.fillStyle = color;
 		ctx.font = "30px microsoft yahei";
@@ -51,13 +50,12 @@ $(function() {
 		dif = new_deg - deg;
 		var jsloop = setInterval(function() {
 			if (deg >= new_deg) {
-				clearInterval(jsloop);
+				clearInterval(jsloop);		//已经画好
 			} else if (deg < new_deg) {
-				deg++;
+				deg++;						
 			}
 			init(obj, color, deg);
 		}, 1000 / dif);
-		//console.log("jsloop finished");
 	}
 
 	//CSS
@@ -75,7 +73,6 @@ $(function() {
 			}
 			init(obj, color, deg);
 		}, 1000 / dif);
-		//console.log("cssloop finished");
 	}
 
 	//HTML5
@@ -93,7 +90,6 @@ $(function() {
 			}
 			init(obj, color, deg);
 		}, 1000 / dif);
-		//console.log("html5loop finished");
 	}
 
 	//NodeJs
@@ -112,6 +108,5 @@ $(function() {
 			}
 			init(obj, color, deg);
 		}, 1000 / dif);
-		//console.log("nodejsloop finished");
 	}
 });
