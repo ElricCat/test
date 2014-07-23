@@ -13,23 +13,23 @@
 
 			 //PORTFOLIO
 			 $("#list_portfolio").on("mouseenter", function() {
-			 	$("#list_portfolio .dropdown").css("display", "block");
+			 	$(this).children('.dropdown').css("display", "block");
 			 });
 			 $("#list_portfolio").on("mouseleave", function() {
-			 	$("#list_portfolio .dropdown").css("display", "none");
+			 	$(this).children('.dropdown').css("display", "none");
 			 });
 
 			  //音乐
 			 $("#list_music").on("click",function(event){
 			 	clearActive();
 			 	if(event.target.innerHTML === "MUSIC"){
-			 		getDOM("music-bar").play();
+			 		$("#music-bar")[0].play();
 			 		event.target.innerHTML = "PAUSE";
 			 		$(this).addClass('music-active');
 			 	}
 			 	else if(event.target.innerHTML === "PAUSE"){
 			 		clearMusicActive();
-			 		getDOM("music-bar").pause();
+			 		$("#music-bar")[0].pause();
 			 		event.target.innerHTML = "MUSIC";
 			 		$(this).removeClass('music-active');
 			 		$(this).addClass('list-active');

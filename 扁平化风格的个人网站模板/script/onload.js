@@ -1,4 +1,3 @@
-//jQuery 获取的 DOM对象并不支持HTML5（难道是版本的原因 ?_?）
 function getDOM(id) {
 	return document.getElementById(id);
 }
