@@ -131,22 +131,10 @@
 				width: 100%;
 				height: 100%;
 			}
-			.bg-img{
-				width: 100%;
+			#bgimg{
+				width:100%;
 				height: 100%;
-			}
-			.bg-img1{
-				background: url("../image/demon.jpg") no-repeat;
-				-webkit-transition:background 0.5s linear,background-size 0.5s linear;
-				background-size: 100% 100%;
-			}
-			.bg-img2{
-				background:url("../image/sherlock.jpg") no-repeat;
-				-webkit-transition:background 0.5s linear,background-size 0.5s linear;
-				ackground-size: 100% 100%;
-			}
-			.bg-img3{
-				background: url("../image/jamesblunt.jpg") no-repeat;
+				background: url(../image/demon.jpg) no-repeat;
 				-webkit-transition:background 0.5s linear,background-size 0.5s linear;
 				background-size: 100% 100%;
 			}

@@ -2,13 +2,13 @@
 			 //主页
 			 $("#list_home").on("click",function(){
 			 	clearActive();
-			 	$("#list_home").addClass('list-active');
+			 	$(this).addClass('list-active');
 			 });
 
 			 //关于我
-			 $("#list_about").on("click",function($event){
+			 $("#list_about").on("click",function(){
 			 	clearActive();
-			 	$("#list_about").addClass('list-active');
+			 	$(this).addClass('list-active');
 			 });
 
 			 //PORTFOLIO
@@ -25,28 +25,28 @@
 			 	if(event.target.innerHTML === "MUSIC"){
 			 		getDOM("music-bar").play();
 			 		event.target.innerHTML = "PAUSE";
-			 		$("#list_music").addClass('music-active');
+			 		$(this).addClass('music-active');
 			 	}
 			 	else if(event.target.innerHTML === "PAUSE"){
 			 		clearMusicActive();
 			 		getDOM("music-bar").pause();
 			 		event.target.innerHTML = "MUSIC";
-			 		$("#list_music").removeClass('music-active');
-			 		$("#list_music").addClass('list-active');
+			 		$(this).removeClass('music-active');
+			 		$(this).addClass('list-active');
 			 	}
 			 });
 
 			 //视频
 			 $("#list_pages").on("mouseenter", function() {
-			 	$("#list_pages .dropdown").css("display", "block");
+			 	$(this).children('.dropdown').css("display", "block");	
 			 });
 			 $("#list_pages").on("mouseleave", function() {
-			 	$("#list_pages .dropdown").css("display", "none");
+			 	$(this).children('.dropdown').css("display", "none");	
 			 });
 			
 			 $("#video1").on("click",function(){
 			 	clearActive();//清除所有样式
-			 	getDOM("music-bar").pause();//暂停音乐
+			 	$("#music-bar")[0].pause();
 			 	var video1Div = $("<div></div>"),
 			 		video1Mask = $("<div></div>"),
 			 		video1 = $("<video></video>"),
@@ -103,7 +103,7 @@
 			 	});
 			 	video1Div.append(video1);
 			 	video1Mask.append(video1Div);
-			 	$("body").append(control);
+			 	video1Mask.append(control);
 			 	$("body").append(video1Mask);
 
 			 	$("#closevideo1").on("click",function(){
@@ -116,7 +116,7 @@
 			  		$("#closevideo1").remove();
 			  		
 			  		if($("#list_music > a").html() === "PAUSE"){
-			  			getDOM("music-bar").play();
+			  			$("#music-bar")[0].play();
 			  		}
 			  	});
 			 });
@@ -127,11 +127,11 @@
 			 $("#list_contact").on("mouseenter",function(){
 			  	clearActive();
 			 	$(".contact").css({"display":"block","z-index":"2001"});
-			 	$("#list_contact").addClass('list-active');
+			 	$(this).addClass('list-active');
 			 });
 			 $(".contact").on("mouseleave",function(){
 			 	clearActive();
-			 	$(".contact").css("display","none");
+			 	$(this).css("display","none");
 			 	$("#list_contact").removeClass('list-active');
 			 });
 
@@ -146,94 +146,70 @@
 			 /*图片浏览*/
 			 //上一张图片
 			 $("#previmg").on("click", function() {
-			 	var index = $(".bg-img").attr('class');
-			 	index = index.substr(-1, 1);
-			 	var currentindex = 0;
+			 	var index = $("#bgimg")[0].title,
+			 		currentindex = 0;
 			 	switch (index) {
 			 		//顺序为向前的话，
 			 		case '1':
 			 			// 1 的下一张是 3 
-			 			$(".bg-img").removeClass('bg-img' + index);
-			 			$(".bg-img").addClass('bg-img3');
 			 			currentindex = 3;
 			 			break;
 			 		case '2':
 			 			//2 的下一张是 1
-			 			$(".bg-img").removeClass('bg-img' + index);
-			 			$(".bg-img").addClass('bg-img1');
 			 			currentindex = 1;
 			 			break;
 			 		case '3':
 			 			//3 的下一张是 2
-			 			$(".bg-img").removeClass('bg-img' + index);
-			 			$(".bg-img").addClass('bg-img2');
 			 			currentindex = 2;
 			 			break;
 			 	}
-			 	changeDescript(currentindex);
-			 	$(".bottom-control span").removeClass('current');
-			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
+			 	changePic(currentindex);
+			 	$("#bgimg")[0].title = currentindex;
+			 	changeButtonControl(currentindex);
 			 });
 
 			 //下一张图片
 			 $("#nextimg").on("click", function() {
-			 	var index = $(".bg-img").attr("class");
-			 	index = index.substr(-1, 1);
-			 	var currentindex = 0; //变换之后是第几张图片
+			 	var index = $("#bgimg")[0].title,
+			 		currentindex = 0; 
 			 	switch (index) {
-			 		//顺序为向后的话，
 			 		case '1':
 			 			//1 的下一张是 2
-			 			$(".bg-img").removeClass('bg-img' + index);
-			 			$(".bg-img").addClass('bg-img2');
 			 			currentindex = 2;
 			 			break;
 			 		case '2':
 			 			//2 的下一张是 3
-			 			$(".bg-img").removeClass('bg-img' + index);
-			 			$(".bg-img").addClass('bg-img3');
 			 			currentindex = 3;
 			 			break;
 			 		case '3':
 			 			//3 的下一张是 1
-			 			$(".bg-img").removeClass('bg-img' + index);
-			 			$(".bg-img").addClass('bg-img1');
 			 			currentindex = 1;
+			 			break;
 			 	}
-			 	changeDescript(currentindex);
-			 	$(".bottom-control span").removeClass('current');
-			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
+			 	changePic(currentindex);
+			 	$("#bgimg")[0].title = currentindex;
+			 	changeButtonControl(currentindex);
 			 });
 
 			 //轮播底部控制按钮
-			 $(".bottom-control span").on("click", function(event) {
-			 	var currentindex = parseInt(event.target.title);
-
-			 	var index = $(".bg-img").attr("class");
-			 	index = index.substr(-1, 1);
-
-			 	$(".bg-img").removeClass('bg-img' + index);
-			 	$(".bg-img").addClass('bg-img' + currentindex);
-			 	changeDescript(currentindex);
-			 	$(".bottom-control span").removeClass('current');
-			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
+			 $(".bottom-control span").on("click", function() {
+			 	var currentindex = parseInt($(this)[0].title);
+			 	changePic(currentindex);
+			 	changeButtonControl(currentindex);
 			 })
 
-			 //修改图片上面的文字
-			 function changeDescript(currentindex) {
-			 	switch (currentindex) {
-			 		case 1:
-			 			$(".img-descript").html("Ian Joseph Somerhalder")
-			 			$(".img-desctipt-detail").html("扮演吸血鬼日记男主角-Demon");
-			 			break;
-			 		case 2:
-			 			$(".img-descript").html("Benedict Cumberbatch")
-			 			$(".img-desctipt-detail").html("扮演神探夏洛克男主角-Sherlock Holmes");
-			 			break;
-			 		case 3:
-			 			$(".img-descript").html("James Hillier Blount")
-			 			$(".img-desctipt-detail").html("被誉为The captain poet");
-			 			break;
-			 	}
+			 //改变底部按钮的样式
+			 function changeButtonControl(currentindex){
+			 	$(".bottom-control span").removeClass('current');
+			 	$(".bottom-control span[title='" + currentindex + "']").addClass('current');
+			 }
+
+			 //修改图片以及上面的文字
+			 function changePic(currentindex) {
+				$(".img-descript").html(picinfo[currentindex].name);
+				$(".img-desctipt-detail").html(picinfo[currentindex].desc);
+				$("#bgimg").css({
+					"background": 'url('+picinfo[currentindex].src+')'
+				});
 			 }
 			 
