@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>女神-范冰冰</title>
+		<style type="text/css">
+			body{
+				position: relative;
+			}
+			#main{
+				width: 804px;
+				height: 600px;
+				margin: 0 auto;
+				box-shadow: 10px 10px 5px #888888;
+			}
+			.child{
+				float: left;
+				width: 200px;
+				height: inherit;
+			}
+			.child-div-inner{
+				width: 0px;
+				height: inherit;
+				background: url(./image/1.jpg) no-repeat;
+			}
+			.control{
+				position: absolute;
+				bottom: 0px;
+				left: 28%;
+				list-style: none;
+			}
+			.control li{
+				float: left;
+				width: 100px;
+				height: 50px;
+			}
+			.control li span{
+				display: block;
+				width: 45px;
+				height: 45px;
+				background-color: #6699cc;
+				color: #fff;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+				font-weight: bold;
+				border-radius: 50%;
+				cursor: pointer;
+				border:3px solid #ffffff; 
+				-webkit-transition:box-shadow 0.2s linear;;
+			}
+			.control li span:hover{
+				color: #6699cc;
+				background-color: #ffffff;
+				box-shadow: 0 1px 1px rgba(255,255,255,0.4), 
+ 							inset 0 1px 1px rgba(0,0,0,0.1),
+ 							0 0 0 5px rgba(255,255,255,0.5);
+			}
+			.active{
+				color: #6699cc!important;
+				background-color: #ffffff!important;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="main">
+			<div class="child">
+				<div class="child-div-inner"></div>
+			</div>
+			<div class="child">
+				<div class="child-div-inner"></div>
+			</div>
+			<div class="child">
+				<div class="child-div-inner"></div>
+			</div>
+			<div class="child">
+				<div class="child-div-inner"></div>
+			</div>
+		</div>
+
+		<ul class="control">
+			<li>
+				<span title="1">1</span>
+			</li>
+			<li>
+				<span title="2">2</span>
+			</li>
+			<li>
+				<span title="3">3</span>
+			</li>
+			<li>
+				<span title="4">4</span>
+			</li>
+			<li>
+				<span title="5">5</span>
+			</li>
+			<li>
+				<span title="6">6</span>
+			</li>
+		</ul>
+		<script type="text/javascript" src="jquery-1.11.1.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				show();
+			});
+
+			$("span").click(show);
+
+			var imgIndex = 1,
+				Count = 4, //每张图片分成4个小块
+				imgUrl;		//图片URL
+
+			function clearAllSpanStyle(){
+				$("span").removeClass("active");
+			}
+
+			function show(event){
+				//清除所有的按钮的active样式
+				clearAllSpanStyle();
+				if(event){
+					$(event.target).addClass("active");
+					imgIndex = event.target.title;
+				}else{
+					//首次加载
+					$("span").first().addClass('active');
+				}
+				imgUrl = "./image/";
+				//图片真实url
+				imgUrl = imgUrl + imgIndex + ".jpg";
+				//设置背景
+				$(".child-div-inner").css("background-image","url("+imgUrl+")");
+
+				//随机选取一种显示风格
+				var styleIndex = Math.floor(Math.random() * 2 + 1);
+
+				for(var i = 0;i < Count;i++){
+					var pos = -( i * 200 ) + "px";
+
+					//显示
+					changeStyle(styleIndex,i,pos);
+				}
+			}
+
+			//显示方式
+			//先设置高度或宽度为0，
+			//然后调用jQuery的动画函数完成高度或宽度的增长
+			//随i的增加，动画时间增长，先快后慢
+			function changeStyle(styleIndex,i,pox){
+				switch(styleIndex){
+					//横向百叶窗
+					case 1:
+							$(".child-div-inner").eq(i).css(
+								{
+									width: "0px",
+									height: "600px",
+									"background-position": pox + ",0px"
+								}
+							);
+							$(".child-div-inner").eq(i).animate(
+								{
+									width: "200px"
+								},
+								300 * i
+							);
+							break;
+					//纵向百叶窗
+					case 2:
+							$(".child-div-inner").eq(i).css(
+								{
+									width: "200px",
+									height: "0px",
+									"background-position": pox + ",0px"
+								}
+							);
+							$(".child-div-inner").eq(i).animate(
+								{
+									height: "600px"
+								},
+								300 * i
+							);
+							break;
+				}
+			}
+		</script>
+	</body>
+</html>
