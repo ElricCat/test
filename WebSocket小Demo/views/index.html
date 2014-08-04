@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>NodeJS实现的 WebSocket 小Demo</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<h3>使用NodeJS的socketio模块来实现WebSocket</h3>
+			</header>
+			<div id="chatbox"></div>
+			<div>
+				<input type="text" id="nickname" placeholder="昵称" autofocus="autofocus"/>
+				<br/>
+				<textarea id="content"></textarea>
+				<br/>
+				<button id="send">Send</button>
+			</div>
+			<footer>
+				关于socketio的更多知识：<a href="https://github.com/Automattic/socket.io" target="_blank">https://github.com/Automattic/socket.io</a>
+			</footer>
+		</div>
+
+		<script src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript">
+			function $(id){
+				return document.getElementById(id);
+			}
+
+			var socket = io.connect('http://localhost');
+			if(socket){
+				$("chatbox").innerHTML = "系统消息：成功连接..." +"<br/>";
+			}else{
+				$("chatbox").innerHTML = "系统消息：不可抗拒的因素导致连接失败 " +"<br />";
+				disableAll();
+			}
+			socket.on('responseMsg', function(data) {
+				//console.log(data);
+				$("chatbox").innerHTML += data.responsemsg;
+			});
+			
+			var btn = $("send");
+			var sendMsg = function(){
+				socket.emit("chatmsg",{
+					nickname:$("nickname").value,
+					content:$("content").value
+				});
+			}
+			btn.addEventListener("click",sendMsg);
+		</script>
+	</body>
+</html>
