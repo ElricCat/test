@@ -30,6 +30,7 @@ stopbtn.addEventListener("click",stopDraw);
 //开始
 var drawbtn = document.getElementById("begin");
 drawbtn.addEventListener("click",function(){
+	clearInterval(intervalHandler);
 	endTime = document.getElementById("lasttime").value;
 	name = document.getElementById("name").value;
 	var pattern = /^[a-zA-Z\s?]+$/;
