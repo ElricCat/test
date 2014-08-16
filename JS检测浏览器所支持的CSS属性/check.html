@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			
+		</style>
+	</head>
+	<body>
+		<span>打开data.js，输入相应的CSS属性，点击检测即可检测</span>
+		<button id="jc">检测</button>
+		<script type="text/javascript" src="data.js"></script>
+		<script type="text/javascript">
+			var jcbtn = document.getElementById("jc"),
+				prefix = ["webkit-",'Moz-','ms-','o-'],
+				j,
+				htmlStyle = document.documentElement.style;
+
+			jcbtn.onclick = function(){
+				var res = supportCSS(data);
+				document.write(navigator.userAgent);
+				document.write("检测结果如下：<br>");
+				if(!res.map){
+					for(var i=0;i<res.length;i++){
+						document.write(res[i].pre+res[i].attr+"====="+res[i].state+"<br>");
+					}
+				}
+				else{
+					document.write(res.map(function(item,index,arr){
+						return item.pre+item.attr+"====="+item.state+"<br>";
+					}));
+				}
+			};
+
+			var validate = function(style){
+					if (style in htmlStyle) {
+						return {status:true,pre:""};
+					} else { // CSS3
+						var i, styleArr = [],
+							tmp;
+						for (i in prefix) {
+							tmp = prefix[i] + style;
+							tmp = tmp.replace(/-(\w)/g,function($0,$1){
+								return $1.toUpperCase();
+							});
+							if (tmp in htmlStyle) {
+								return {status:true,pre:prefix[i]};
+							}
+						}
+					}
+					return {status:false,pre:""};
+			}
+
+			var supportCSS = function(style){
+				var result = [];
+				for(var j=0;j<data.length;j++){
+					var d = {};
+					res = validate(data[j]);
+					d.attr = data[j];
+					d.pre = res.pre;
+					d.state = res.status;
+					result[j] = d;
+				}
+				return result;
+			}
+		</script>
+	</body>
+</html>
