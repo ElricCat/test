@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="Welcome">
+	<head>
+		<title>Hello AngularJS</title>
+		<meta charset="utf-8">
+	</head>
+	<body>
+		your name:<input type="text" ng-model="yourname" placeholder="world">
+		hello {{yourname||'world'}}
+
+		<div ng-controller="HelloAngular">
+			<span>{{greeting.text}},Angular</span>
+			<span>{{greeting.text}}</span>
+		</div>
+
+		<div ng-controller='GetNames'>
+			<ul>
+				<li ng-repeat="name in names">
+					{{name}} from {{department}}
+				</li>
+			</ul>
+		</div>
+		<div ng-controller="Event">
+			<button ng-click="emit('emitmyevent')">向上</button>
+			<button ng-click="broadcast('broadcastevent')">向下</button>
+		</div>
+		<button ng-click="emit('emidede')">hehe</button>
+		<script type="text/javascript" src="./js/angular.min.js"></script>
+		<script type="text/javascript" src="./js/controller/helloangular.js"></script>
+		<script type="text/javascript">
+			var app = angular.module("Welcome",[]);
+			app.controller("HelloAngular",HelloAngular);
+			app.controller("GetNames",GetNames);
+			app.controller("Event",EventController)
+		</script>
+	</body>
+</html>

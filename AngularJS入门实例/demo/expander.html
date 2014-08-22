@@ -1,0 +1,40 @@
+<!doctype html>
+<html ng-app="expanderModule">
+	<head>
+		<meta charset="utf-8">
+		<style type="text/css">
+			.expander{
+				width: 400px;
+				margin: 0 auto;
+			}
+			.tt{
+				background-color: black;
+				width: 300px;
+				color: white;
+				cursor: pointer;
+			}
+			.title{
+				background-color: black;
+				width: 300px;
+				font-size: 2em;
+				color: white;
+				cursor: pointer;
+			}
+			.body{
+				background-color: #68c;
+				width: 300px;
+				font-size: 1.5em;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="expander"ng-controller="ExpanderController">
+			<expander class="tt"expander-title="title">
+				{{text}}
+			</expander>
+		</div>
+		<script type="text/javascript" src="./js/angular.min.js"></script>
+		<script type="text/javascript" src="./js/controller/expander.js"></script>
+	</body>
+</html>

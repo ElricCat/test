@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="bookstore">
+<head>
+	<title>book store</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		div{
+			width: 600px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+<body>
+	<div ng-controller="book.list">
+		<button add-book-button>add book</button><button get-book-button>Get Book</button>
+		<br>
+		<ul>
+			<li ng-repeat="book in books">
+				bookname : {{book.title}} | author: {{book.author}}
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="./js/angular.min.js"></script>
+	<script type="text/javascript" src="./js/controller/bookstore.js"></script>
+</body>
+</html>
